@@ -1,4 +1,4 @@
-import { randomRGBColorGenerator } from './index';
+import { randomRGBColorGenerator } from '../randomRGBColorGenerator';
 
 test('returns an array of length 3', () => {
   const received = randomRGBColorGenerator();
