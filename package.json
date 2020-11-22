@@ -7,6 +7,7 @@
   "types": "dist/index.d.ts",
   "sideEffects": false,
   "scripts": {
+    "dev": "npm link && npm run watch && npm unlink -g",
     "build": "rollpkg build",
     "watch": "rollpkg watch",
     "prepublishOnly": "npm run lint && npm test && npm run build",
