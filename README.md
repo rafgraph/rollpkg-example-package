@@ -1,6 +1,6 @@
 # Rollpkg Example Package
 
-This is the example package for [Rollpkg](https://github.com/rafgraph/rollpkg), a zero config way to create packages with Rollup and TypeScript. The built and published code for the example package can be [viewed here](https://unpkg.com/browse/rollpkg-example-package/).
+This is the example package for [Rollpkg](https://github.com/rafgraph/rollpkg), a convention over configuration way to create packages with Rollup and TypeScript. The built and published code for this example package can be [viewed here](https://unpkg.com/browse/rollpkg-example-package/).
 
 This repo is setup to use [Rollpkg's default configs](https://github.com/rafgraph/rollpkg#using-default-configs-optional) for TypeScript, Prettier, ESLint and Jest, as well as to use [`npm link` for development](https://github.com/rafgraph/rollpkg#package-development-with-npm-link), and a pre-commit hook to format the code with Prettier.
 
@@ -8,7 +8,7 @@ The demo app for `rollpkg-example-package` is [deployed here](https://rollpkg.ra
 
 ### Demo app with `npm link`
 
-- Use this package in a live demo app as you're working on it. With `rollpkg watch` and `npm link` you can see live changes in the demo app as you make changes to the code.
+- One way to develop packages is to use the package in a live demo app as you're working on it. With `rollpkg watch` and `npm link` you can see live changes in the demo app as you make changes to the code.
 - To try this out:
   - Clone this repo and clone the [demo repo](https://github.com/rafgraph/rollpkg-example-package-demo), and run `npm install`.
   - In this repo's directory run `npm run dev` (this will link `rollpkg-example-package` to global `node_modules` and start `rollpkg watch`).
