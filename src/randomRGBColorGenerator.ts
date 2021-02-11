@@ -9,9 +9,5 @@ export const randomRGBColorGenerator: RandomRGBColorGenerator = () => {
   const green = randomNumber0to255();
   const blue = randomNumber0to255();
 
-  if (process.env.NODE_ENV !== 'production') {
-    console.log(`Color generated: red ${red}, green ${green}, blue ${blue}`);
-  }
-
   return [red, green, blue];
 };

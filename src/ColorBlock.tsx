@@ -11,3 +11,8 @@ export const ColorBlock: React.VFC<ColorBlockProps> = ({
   height,
   rgbColor,
 }) => <div style={{ width, height, backgroundColor: `rgb(${rgbColor})` }} />;
+
+// only add displayName in development to help with debugging
+if (process.env.NODE_ENV !== 'production') {
+  ColorBlock.displayName = 'ColorBlock';
+}
