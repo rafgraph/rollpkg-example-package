@@ -8,7 +8,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-interactive": "^0.9.5",
-    "rollpkg-example-package": "^0.2.1",
+    "rollpkg-example-package": "^0.4.2",
     "use-dark-mode": "^2.3.1"
   },
   "devDependencies": {
