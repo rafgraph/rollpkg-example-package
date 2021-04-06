@@ -89,10 +89,7 @@ export const StyledInteractiveLink = styled(InteractiveLink, {
   },
 
   '&.focusFromTab': {
-    // have separate outlineColor b/c tokens don't work in outline shorthand
-    // https://github.com/modulz/stitches/issues/103
-    outlineColor: '$green',
-    outline: '2px solid',
+    outline: '2px solid $colors$green',
     outlineOffset: '2px',
   },
 
@@ -153,10 +150,7 @@ export const StyledInteractiveButton = styled(InteractiveButton, {
   },
 
   '&.focusFromTab': {
-    // have separate outlineColor b/c tokens don't work in outline shorthand
-    // https://github.com/modulz/stitches/issues/103
-    outlineColor: '$green',
-    outline: '2px solid',
+    outline: '2px solid $colors$green',
     outlineOffset: '2px',
   },
 });

@@ -4,17 +4,17 @@
   "private": true,
   "dependencies": {
     "@modulz/radix-icons": "^4.0.0",
-    "@stitches/react": "^0.0.3-canary.4",
+    "@stitches/react": "^0.1.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-interactive": "^0.9.5",
-    "rollpkg-example-package": "^0.5.3",
+    "rollpkg-example-package": "^0.5.5",
     "use-dark-mode": "^2.3.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
-    "@testing-library/user-event": "^12.8.3",
+    "@testing-library/user-event": "^13.1.1",
     "@types/jest": "^26.0.22",
     "@types/node": "^14.14.37",
     "@types/react": "^17.0.3",
