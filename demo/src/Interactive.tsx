@@ -1,106 +1,75 @@
-import Interactive from 'react-interactive';
+import { Interactive } from 'react-interactive';
 import { SunIcon } from '@modulz/radix-icons';
 import { styled } from './stitches.config';
 
-interface DarkModeToggleProps {
-  onClick: () => void;
-  className?: any;
+interface InteractiveDarkModeButtonProps {
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  className?: string;
 }
-const DarkModeToggle: React.VFC<DarkModeToggleProps> = ({
+const InteractiveDarkModeButton: React.VFC<InteractiveDarkModeButtonProps> = ({
   onClick,
   className,
-  ...props
 }) => {
   return (
-    <Interactive
-      {...props}
-      className={className.toString()}
-      onClick={onClick}
-      as="span"
-      hover={{ className: 'hover' }}
-      active="hover"
-      focusFromTab={{
-        className: 'focusFromTab',
-        style: {
-          outline: null,
-          outlineOffset: null,
-        },
-      }}
-      touchActiveTapOnly
-    >
+    <Interactive as="button" className={className} onClick={onClick}>
       <SunIcon width="30" height="30" />
     </Interactive>
   );
 };
 
-export const StyledDarkModeToggle = styled(DarkModeToggle, {
+export const DarkModeButton = styled(InteractiveDarkModeButton, {
   color: '$highContrast',
   width: '30px',
   height: '30px',
-  display: 'inline-block',
-
-  '&.hover': {
+  '&.hover, &.active': {
     color: '$green',
   },
-
-  '&.focusFromTab': {
-    // have separate outlineColor b/c tokens don't work in outline shorthand
-    // https://github.com/modulz/stitches/issues/103
-    outlineColor: '$green',
-    outline: '2px solid',
+  '&.focusFromKey': {
+    outline: '2px solid $colors$green',
     outlineOffset: '2px',
   },
 });
 
 interface InteractiveLinkProps {
-  children: React.ReactNode;
   href: string;
-  className?: any;
+  className?: string;
+  children: React.ReactNode;
 }
-const InteractiveLink: React.VFC<InteractiveLinkProps> = (props) => {
+const InteractiveLink: React.VFC<InteractiveLinkProps> = ({
+  href,
+  className,
+  children,
+}) => {
   return (
     <Interactive
-      {...props}
-      className={props.className.toString()}
       as="a"
-      hover={{ className: 'hover' }}
-      active="hover"
-      focusFromTab={{
-        className: 'focusFromTab',
-        style: {
-          outline: null,
-          outlineOffset: null,
-        },
-      }}
-      touchActiveTapOnly
+      href={href}
+      className={className}
       target="_blank"
       rel="noopener noreferrer"
-    />
+    >
+      {children}
+    </Interactive>
   );
 };
 
-export const StyledInteractiveLink = styled(InteractiveLink, {
+export const Link = styled(InteractiveLink, {
   color: '$highContrast',
-  borderBottom: '2px dotted $green',
+  borderBottom: '1px dotted $colors$green',
   textDecoration: 'none',
-
-  '&.hover': {
+  '&.hover, &.active': {
     borderBottomStyle: 'solid',
   },
-
-  '&.focusFromTab': {
+  '&.focusFromKey': {
     outline: '2px solid $colors$green',
     outlineOffset: '2px',
   },
-
   variants: {
     type: {
       lowContrast: {
         color: '$lowContrast',
         fontSize: '14px',
-        borderBottomWidth: '1px',
-
-        '&.hover': {
+        '&.hover, &.active': {
           color: '$highContrast',
         },
       },
@@ -109,33 +78,25 @@ export const StyledInteractiveLink = styled(InteractiveLink, {
 });
 
 interface InteractiveButtonProps {
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  className?: string;
   children: React.ReactNode;
-  onClick: () => void;
-  className?: any;
 }
-const InteractiveButton: React.VFC<InteractiveButtonProps> = (props) => {
+const InteractiveButton: React.VFC<InteractiveButtonProps> = ({
+  onClick,
+  className,
+  children,
+}) => {
   return (
-    <Interactive
-      {...props}
-      className={props.className.toString()}
-      as="div"
-      hover={{ className: 'hover' }}
-      active="hover"
-      focusFromTab={{
-        className: 'focusFromTab',
-        style: {
-          outline: null,
-          outlineOffset: null,
-        },
-      }}
-      touchActiveTapOnly
-    />
+    <Interactive as="button" className={className} onClick={onClick}>
+      {children}
+    </Interactive>
   );
 };
 
-export const StyledInteractiveButton = styled(InteractiveButton, {
+export const Button = styled(InteractiveButton, {
   color: '$highContrast',
-  border: '2px solid $highContrast',
+  border: '2px solid $colors$highContrast',
   width: '100%',
   height: '42px',
   lineHeight: '36px',
@@ -143,13 +104,11 @@ export const StyledInteractiveButton = styled(InteractiveButton, {
   textAlign: 'center',
   margin: '25px 0',
   userSelect: 'none',
-
-  '&.hover': {
+  '&.hover, &.active': {
     color: '$green',
     borderColor: '$green',
   },
-
-  '&.focusFromTab': {
+  '&.focusFromKey': {
     outline: '2px solid $colors$green',
     outlineOffset: '2px',
   },

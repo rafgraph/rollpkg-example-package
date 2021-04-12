@@ -2,11 +2,7 @@ import { useState } from 'react';
 import { randomRGBColorGenerator, ColorBlock } from 'rollpkg-example-package';
 import useDarkMode from 'use-dark-mode';
 import { styled, globalStyles, darkThemeClass } from './stitches.config';
-import {
-  StyledInteractiveLink,
-  StyledDarkModeToggle,
-  StyledInteractiveButton,
-} from './Interactive';
+import { Link, DarkModeButton, Button } from './Interactive';
 
 const AppDiv = styled('div', {
   maxWidth: '400px',
@@ -45,20 +41,18 @@ export const App = () => {
     <AppDiv>
       <H1>
         <span>Rollpkg Example Package</span>
-        <StyledDarkModeToggle onClick={darkMode.toggle} />
+        <DarkModeButton onClick={darkMode.toggle} />
       </H1>
-      <StyledInteractiveLink
+      <Link
         type="lowContrast"
         href="https://github.com/rafgraph/rollpkg-example-package"
       >
         https://github.com/rafgraph/rollpkg-example-package
-      </StyledInteractiveLink>
+      </Link>
       <P>
         This is the demo site for the Rollpkg Example Package.{' '}
-        <StyledInteractiveLink href="https://github.com/rafgraph/rollpkg">
-          Rollpkg
-        </StyledInteractiveLink>{' '}
-        is a zero config way to create packages with Rollup and TypeScript.
+        <Link href="https://github.com/rafgraph/rollpkg">Rollpkg</Link> is a
+        zero config way to create packages with Rollup and TypeScript.
       </P>
 
       <P>
@@ -66,13 +60,13 @@ export const App = () => {
         demonstrated here.
       </P>
 
-      <StyledInteractiveButton
+      <Button
         onClick={() =>
           setColors([randomRGBColorGenerator(), randomRGBColorGenerator()])
         }
       >
         Generate new random colors
-      </StyledInteractiveButton>
+      </Button>
 
       <ColorBlockContainer>
         <ColorBlock width="100%" height="200px" rgbColor={colors[0]} />

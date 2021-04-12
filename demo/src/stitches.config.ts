@@ -21,6 +21,9 @@ export const darkThemeClass = theme({
 });
 
 export const globalStyles = stitchesGlobal({
+  'button, input': {
+    all: 'unset',
+  },
   'body, div, span, a, p, h1, h2, code': {
     margin: 0,
     border: 0,
@@ -32,6 +35,7 @@ export const globalStyles = stitchesGlobal({
     textAlign: 'inherit',
     color: 'inherit',
     background: 'transparent',
+    WebkitTapHighlightColor: 'transparent',
   },
   html: {
     height: '100%',
@@ -45,6 +49,9 @@ export const globalStyles = stitchesGlobal({
     fontSize: '16px',
     boxSizing: 'border-box',
     textSizeAdjust: 'none',
+  },
+  code: {
+    fontFamily: 'monospace',
   },
   '#root': {
     minHeight: '100%',
