@@ -1,72 +1,102 @@
-import { useState } from 'react';
+import * as React from 'react';
 import { randomRGBColorGenerator, ColorBlock } from 'rollpkg-example-package';
-import useDarkMode from 'use-dark-mode';
-import { styled, globalStyles, darkThemeClass } from './stitches.config';
-import { Link, DarkModeButton, Button } from './Interactive';
+import { DarkModeButton } from './ui/DarkModeButton';
+import { GitHubIconLink } from './ui/GitHubIconLink';
+import { Link } from './ui/Link';
+import { Button } from './ui/Button';
+import { styled, globalCss } from './stitches.config';
 
-const AppDiv = styled('div', {
-  maxWidth: '400px',
-  padding: '14px 15px 25px',
+const AppContainer = styled('div', {
+  maxWidth: '420px',
+  padding: '12px 15px 25px',
   margin: '0 auto',
+});
+
+const HeaderContainer = styled('header', {
+  display: 'flex',
+  justifyContent: 'space-between',
+  marginBottom: '18px',
 });
 
 const H1 = styled('h1', {
   fontSize: '26px',
-  display: 'flex',
-  justifyContent: 'space-between',
-  marginBottom: '2px',
+  marginRight: '16px',
 });
 
-const P = styled('p', {
-  margin: '12px 0',
+const HeaderIconContainer = styled('span', {
+  width: '78px',
+  display: 'inline-flex',
+  justifyContent: 'space-between',
+  gap: '12px',
+});
+
+const InfoContainer = styled('p', {
+  margin: '18px 0',
+});
+
+const RandomColorButton = styled(Button, {
+  display: 'block',
+  border: '2px solid',
+  borderRadius: '6px',
+  width: '100%',
+  height: '50px',
+  lineHeight: '36px',
+  fontSize: '18px',
+  textAlign: 'center',
+  margin: '36px 0 50px',
 });
 
 const ColorBlockContainer = styled('div', {
   margin: '30px 0',
+  '&>div': {
+    borderRadius: '6px',
+  },
 });
 
 export const App = () => {
-  globalStyles();
+  globalCss();
 
-  const darkMode = useDarkMode(undefined, {
-    classNameDark: darkThemeClass,
-  });
-
-  const [colors, setColors] = useState(() => [
+  const [colors, setColors] = React.useState(() => [
     randomRGBColorGenerator(),
     randomRGBColorGenerator(),
   ]);
 
   return (
-    <AppDiv>
-      <H1>
-        <span>Rollpkg Example Package</span>
-        <DarkModeButton onClick={darkMode.toggle} />
-      </H1>
-      <Link
+    <AppContainer>
+      <HeaderContainer>
+        <H1>Rollpkg Example Package</H1>
+        <HeaderIconContainer>
+          <DarkModeButton />
+          <GitHubIconLink
+            title="GitHub repository for Rollpkg Example Package"
+            href="https://github.com/rafgraph/rollpkg-example-package"
+          />
+        </HeaderIconContainer>
+        {/* <Link
         type="lowContrast"
         href="https://github.com/rafgraph/rollpkg-example-package"
-      >
+        >
         https://github.com/rafgraph/rollpkg-example-package
-      </Link>
-      <P>
-        This is the demo site for the Rollpkg Example Package.{' '}
+      </Link> */}
+      </HeaderContainer>
+      <InfoContainer>
+        This is the demo app for the Rollpkg Example Package.{' '}
         <Link href="https://github.com/rafgraph/rollpkg">Rollpkg</Link> is a
-        zero config way to create packages with Rollup and TypeScript.
-      </P>
+        zero config build tool to create packages with Rollup and TypeScript.
+      </InfoContainer>
 
-      <P>
+      <InfoContainer>
         The example package contains a random color generator, which is
         demonstrated here.
-      </P>
+      </InfoContainer>
 
-      <Button
+      <RandomColorButton
         onClick={() =>
           setColors([randomRGBColorGenerator(), randomRGBColorGenerator()])
         }
       >
         Generate new random colors
-      </Button>
+      </RandomColorButton>
 
       <ColorBlockContainer>
         <ColorBlock width="100%" height="200px" rgbColor={colors[0]} />
@@ -76,6 +106,6 @@ export const App = () => {
         <ColorBlock width="100%" height="200px" rgbColor={colors[1]} />
         <div>RGB {colors[1].join(', ')}</div>
       </ColorBlockContainer>
-    </AppDiv>
+    </AppContainer>
   );
 };
