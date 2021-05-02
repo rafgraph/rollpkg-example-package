@@ -7,7 +7,7 @@
     "@stitches/react": "^0.1.9",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-interactive": "^1.0.0",
+    "react-interactive": "^1.1.0",
     "rollpkg-example-package": "^0.5.5",
     "use-dark-mode": "^2.3.1"
   },
