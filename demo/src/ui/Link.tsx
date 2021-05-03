@@ -12,42 +12,26 @@ const StyledLink = styled(Interactive.A, {
   textDecorationColor: '$green',
   textDecorationThickness: 'from-font',
 
-  '&.hover': {
+  // padding used to provide offset for boxShadow focus styles,
+  // margin undoes padding for page layout so boxShadow works like outline
+  padding: '2px 3px',
+  margin: '-2px -3px',
+  // this is the main reason to use boxShadow instead of outline for focus styles,
+  // with outline can only have square corners,
+  // with boxShadow can use borderRadius to soften the corners
+  borderRadius: '3px',
+
+  '&.hover, &.mouseActive': {
     textDecorationColor: '$green',
     textDecorationStyle: 'solid',
   },
-  '&.active': {
+  '&.touchActive, &.keyActive': {
     textDecorationColor: '$green',
     textDecorationStyle: 'solid',
     color: '$green',
   },
-  variants: {
-    focus: {
-      outline: {
-        '&.focusFromKey': {
-          outline: '2px solid $colors$purple',
-          outlineOffset: '2px',
-        },
-      },
-      boxShadow: {
-        // padding used to provide offset for boxShadow
-        // margin undoes padding for page layout so boxShadow works like outline
-        padding: '2px 3px',
-        margin: '-2px -3px',
-
-        // this is the main reason to use boxShadow instead of outline
-        // with outline can only have square corners,
-        // with boxShadow can use borderRadius to soften the corners
-        borderRadius: '3px',
-
-        '&.focusFromKey': {
-          boxShadow: '0 0 0 2px $colors$purple',
-        },
-      },
-    },
-  },
-  defaultVariants: {
-    focus: 'boxShadow',
+  '&.focusFromKey': {
+    boxShadow: '0 0 0 2px $colors$purple',
   },
 });
 
