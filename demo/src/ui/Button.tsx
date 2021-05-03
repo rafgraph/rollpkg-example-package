@@ -7,6 +7,9 @@ export const Button = styled(Interactive.Button, {
     color: '$green',
     borderColor: '$green',
   },
+  '&.disabled': {
+    opacity: 0.5,
+  },
   variants: {
     focus: {
       outline: {

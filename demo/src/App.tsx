@@ -39,8 +39,7 @@ const RandomColorButton = styled(Button, {
   border: '2px solid',
   borderRadius: '6px',
   width: '100%',
-  height: '50px',
-  lineHeight: '36px',
+  padding: '14px',
   fontSize: '18px',
   textAlign: 'center',
   margin: '36px 0 50px',
@@ -72,12 +71,6 @@ export const App = () => {
             href="https://github.com/rafgraph/rollpkg-example-package"
           />
         </HeaderIconContainer>
-        {/* <Link
-        type="lowContrast"
-        href="https://github.com/rafgraph/rollpkg-example-package"
-        >
-        https://github.com/rafgraph/rollpkg-example-package
-      </Link> */}
       </HeaderContainer>
       <InfoContainer>
         This is the demo app for the Rollpkg Example Package.{' '}
